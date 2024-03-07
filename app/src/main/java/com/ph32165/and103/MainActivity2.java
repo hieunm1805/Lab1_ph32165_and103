@@ -40,7 +40,7 @@ public class MainActivity2 extends AppCompatActivity {
 //        deleteData();
         selectData();
     }
-    void insertData()
+    void insert()
     {
         id= UUID.randomUUID().toString();//lay 1 id ngau nhien
         todo=new Todo(id,"title 1 04","content 1 04");
@@ -61,26 +61,26 @@ public class MainActivity2 extends AppCompatActivity {
                 });
 
     }
-    void updateData(){
+    void update(){
         id="5ea47a2f-db33-44fd-bdf7-25169e573e3b";
-        todo=new Todo(id,"title update hung 1","content update hung 1");
+        todo=new Todo(id,"title update 1","content update 1");
         database.collection("TODO")
                 .document(todo.getId())
                 .update(todo.convertToHashMap())
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Toast.makeText(context, "Update thanh cong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Update thành công", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(context, "update that bai", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Update thất bại", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
-    void deleteData()
+    void delete()
     {
         id="74c9e5e9-3f47-4f2d-87b5-572b26a169a6";
         database.collection("TODO").document(id)
@@ -88,13 +88,13 @@ public class MainActivity2 extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Toast.makeText(context, "Xoa thanh cong", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Xoá thành công", Toast.LENGTH_SHORT).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(context, "xoa that bai", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Xoá thất bại", Toast.LENGTH_SHORT).show();
                     }
                 });
     }
@@ -118,11 +118,11 @@ public class MainActivity2 extends AppCompatActivity {
                                 strKQ+="content: "+t.getContent()+"\n";
                                 list.add(t);
                             }
-                            Toast.makeText(context, "Doc thanh cong", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Đọc thành công", Toast.LENGTH_SHORT).show();
                             tvKQ.setText(strKQ);
                         }
                         else {
-                            Toast.makeText(context, "Doc khong thanh cong", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(context, "Đọc không thành công", Toast.LENGTH_SHORT).show();
                         }
 
 
