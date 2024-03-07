@@ -35,9 +35,9 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         tvKQ=findViewById(R.id.tvKQ);
         database=FirebaseFirestore.getInstance();//khoi tao
-//        insertData();
-//        updateData();
-//        deleteData();
+//        insert();
+//        update();
+//        delete();
         selectData();
     }
     void insert()
@@ -50,19 +50,19 @@ public class MainActivity2 extends AppCompatActivity {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void unused) {
-                        Toast.makeText(context, "Them thanh cong", Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, "Insert thành công", Toast.LENGTH_LONG).show();
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(context, "Them that bai", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "Insert thất bại", Toast.LENGTH_SHORT).show();
                     }
                 });
 
     }
     void update(){
-        id="5ea47a2f-db33-44fd-bdf7-25169e573e3b";
+        id="32edf64b-4411-4693-9bc0-d4639d6b0e2a";
         todo=new Todo(id,"title update 1","content update 1");
         database.collection("TODO")
                 .document(todo.getId())
@@ -82,7 +82,7 @@ public class MainActivity2 extends AppCompatActivity {
     }
     void delete()
     {
-        id="74c9e5e9-3f47-4f2d-87b5-572b26a169a6";
+        id="32edf64b-4411-4693-9bc0-d4639d6b0e2a";
         database.collection("TODO").document(id)
                 .delete()
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
